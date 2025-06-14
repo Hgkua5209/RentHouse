@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login | RentUrHouse</title>
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+</head>
+<body>
+<div class="container">
+    <div class="left">
+        <h1>Welcome To RentUrHouse,<br>Student Rent House System</h1>
+        <p>The only website that matches your preference with our rental house</p>
+    </div>
+    <div class="right">
+      <div class="center-links">
+        <h2>Log in</h2>
+      </div>
+        <div class="card">
+          <div class="center-links">
+            <div class="white"> 
+              <h3>Welcome back, Tenant!</h3>
+            </div>
+          </div>
+          <div class="white">          
+            <h5>Log in to get started</h5>
+          </div>
+            <form method="POST" action="{% url 'login' %}">
+                {% csrf_token %}
+                <input type="text" name="username" placeholder="Email address" required>
+                <input type="password" name="password" placeholder="Password" required>
+                <button type="submit">Login</button>
+            </form>
+            <div class="center-links">
+              <div class="a">
+                <a href="#">Forgot Password?</a><br>
+                <a href="{% url 'register_user' %}">Register as new user</a>
+                <a href="{% url 'adminLogin' %}">Login as Admin</a>
+              </div>
+            </div>
+        </div>
+        <button class="student-btn">Login as Student</button>
+    </div>
+</div>
+</body>
+</html>

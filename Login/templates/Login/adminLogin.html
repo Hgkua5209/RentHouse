@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Login | RentUrHouse</title>
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+</head>
+<body>
+<div class="container">
+    <div class="left">
+        <h1>Welcome Admin,<br>RentUrHouse Dashboard</h1>
+        <p>Manage listings, users, and system preferences</p>
+    </div>
+    <div class="right">
+        <h2>Admin Log in</h2>
+        <div class="card">
+            <h3>Welcome back, Admin!</h3>
+            <form method="POST">
+              {% csrf_token %}
+              <input type="text" name="username" placeholder="Username" required>
+              <input type="password" name="password" placeholder="Password" required>
+              <button type="submit">Login</button>
+            </form>
+            {% if messages %}
+              {% for message in messages %}
+                <p style="color: red">{{ message }}</p>
+              {% endfor %}
+            {% endif %}
+            <div class="links">
+                <a href="#">Forgot Password?</a><br>
+                <a href="{% url 'login' %}">Back to User Login</a>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

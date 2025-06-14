@@ -1,0 +1,20 @@
+{% block content %}
+{% if messages %}
+  {% for message in messages %}
+    <div class="alert alert-warning">{{ message }}</div>
+  {% endfor %}
+{% endif %}
+
+<div class="shadow p-4 mb-5 bg-body rounded">
+    <h1>Register</h1>
+    <form action="{% url 'register_user' %}" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Submit" class="btn btn-secondary">
+    </form>
+</div>
+
+<div class="button-container">
+    <a class="nav-link" href="{% url 'login' %}">Login</a>
+</div>
+{% endblock %}

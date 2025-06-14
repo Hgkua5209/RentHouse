@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Receipt</title>
+</head>
+<body>
+    <h2>Payment Receipt</h2>
+    <p><strong>Name:</strong> {{ data.full_name }}</p>
+    <p><strong>Email:</strong> {{ data.email }}</p>
+    <p><strong>Phone:</strong> {{ data.phone }}</p>
+    <p><strong>Amount Paid:</strong> RM {{ data.amount }}</p>
+
+    <a href="{% url 'receipt_pdf' %}">Download as PDF</a>
+</body>
+</html>

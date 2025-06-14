@@ -1,0 +1,223 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin home</title>
+  <link rel="stylesheet" href="{% static 'Tracking/media/parallax.css' %}">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    
+    h1{
+      color: #000000;
+      text-align: center;
+      text-decoration: underline;
+    }
+
+    p{
+      text-align: center;
+      color: #000000;
+      font-size: 30px;
+    }
+
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      position: relative;
+    }
+
+    /* Slideshow */
+    .slideshow {
+      position: relative;
+      width: 100%;
+      height: 300px;
+      overflow: hidden;
+    }
+
+    .slideshow img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .slideshow .numbertext {
+      position: absolute;
+      top: 0;
+      left: 0;
+      padding: 8px 12px;
+      color: #f2f2f2;
+      font-size: 12px;
+    }
+
+    .slideshow .text {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 8px 12px;
+      color: #f2f2f2;
+      font-size: 15px;
+      text-align: center;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    /* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {
+    opacity: .4
+  }
+  to {
+    opacity: 1
+  }
+}
+
+    /* Dots/bullets */
+    .dots {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .dot {
+      display: inline-block;
+      height: 10px;
+      width: 10px;
+      margin: 0 5px;
+      background-color: #bbb;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background-color 0.6s ease;
+    }
+
+    .active,
+    .dot:hover {
+      background-color: #717171;
+    }
+
+    /* Parallax */
+    .parallax {
+      min-height: 500px;
+      background-attachment: fixed;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    /* Content */
+    .content {
+      height: 1000px;
+      background-color: #f2f2f2;
+      text-align: center;
+      padding: 100px;
+    }
+
+    @media only screen and (max-width: 768px) {
+      /* Slideshow */
+      .slideshow {
+        height: 200px;
+      }
+
+      .slideshow .numbertext,
+      .slideshow .text {
+        font-size: 10px;
+      }
+
+      /* Content */
+      .content {
+        padding: 50px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Slideshow container -->
+  <h2><b>HOME</h2>
+  <br>
+  <div class="slideshow-container">
+
+    <div class="mySlides fade" >
+        <img src="{% static "Tracking/media/kpm.jpg" %}" style="width:100%; height:600px">
+      </a>
+    </div>
+
+    <div class="mySlides fade">
+        <img src="{% static "Tracking/media/kesukma.jpg" %}" style="width:100%; height:600px">
+      </a>
+    </div>
+
+    <div class="mySlides fade">
+        <img src="{% static "Tracking/media/johan.jpg" %}" style="width:100%; height:600px">
+      </a>
+    </div>
+
+  </div>
+  <br>
+
+  <div style="text-align:center">
+    <span class="dot"></span> 
+    <span class="dot"></span> 
+    <span class="dot"></span> 
+  </div>
+
+  <script>
+    let slideIndex = 0;
+    showSlides();
+
+    function showSlides() {
+      let i;
+      let slides = document.getElementsByClassName("mySlides");
+      let dots = document.getElementsByClassName("dot");
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";  
+      }
+      slideIndex++;
+      if (slideIndex > slides.length) {slideIndex = 1}    
+      for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+      }
+      slides[slideIndex-1].style.display = "block";  
+      dots[slideIndex-1].className += " active";
+      setTimeout(showSlides, 2200); // Change image every 2 seconds
+    }
+  </script>
+
+
+	<!-- Parallax scrolling -->
+	<div class="parallax"></div>
+
+  <h1><b>Objective</h1>
+    <br><br>
+
+	<div style="height:1000px;background-color:rgb(255, 255, 255);font-size:36px">
+    <p>
+      The Sports Achievement Tracking System is a web-based platform built on a Django framework with a database backend that aims to serve five main purposes for college use. 
+      Firstly, it allows students to track their sports achievements, Such as studentId, LecturerId, sportCode, and session, date, and achievement. 
+      Secondly, it provides Managing Student Data, The website will allow Lecturer to manage and monitor Student. 
+      Thirdly, Managing Lecturer Data, this website will allow Lecturer to manage their own data and set which lecturer want to monitor which student the data that is inside the lecturer model. 
+      Fourthly, Managing Sport Data, including SportCode, SportName, and SportDescription. 
+      Finally, it provides a comprehensive record of the college's sporting history, including past achievements and the session wit the date of the sport achivment, 
+      which can be used to inform decision-making and inspire future generations of athletes. Through these five purposes, 
+      the Sports Achievement Tracking System provides a powerful tool for enhancing the college's sporting culture and promoting the success of its athletes.
+  </p>
+	</div>
+
+	<div class="parallax"></div>
+
+</body>
+</html>
